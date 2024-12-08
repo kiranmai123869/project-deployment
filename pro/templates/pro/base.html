@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Doctor Consultation</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    /* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  background: url('https://source.unsplash.com/1920x1080/?medical,healthcare') no-repeat center center/cover;
+  background-attachment: fixed;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+/* Header */
+.header {
+  background: #007BFF;
+  color: #fff;
+  padding: 10px 0;
+}
+
+.logo {
+  font-size: 1.8em;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  margin: 0 10px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1em;
+}
+
+.nav-links .btn {
+  background: #FFC107;
+  color: #333;
+  padding: 5px 15px;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+
+/* Hero Section */
+.hero {
+  background: url('https://source.unsplash.com/1600x600/?healthcare,doctor') no-repeat center center/cover;
+  color: #fff;
+  text-align: center;
+  padding: 100px 20px;
+  position: relative;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Adds a dark overlay for text readability */
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-content h2 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+.hero-content p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+.hero-content .btn {
+  background: #28A745;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+/* Services Section */
+.services {
+  padding: 50px 20px;
+  background: #f9f9f9;
+  text-align: center;
+}
+
+.services h2 {
+  margin-bottom: 30px;
+}
+
+.service-cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  width: 250px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.card h3 {
+  color: #007BFF;
+  margin-bottom: 10px;
+}
+
+/* Footer */
+.footer {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+}
+
+</style>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">ConsultEase</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="base.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="pharmacy.html">pharmacy</a></li>
+          <li><a href="login.html" class="btn">Login</a></li>
+          <li><a href="profile.html" class="btn">profile</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Your Trusted Online Doctor Consultation Platform</h2>
+      <p>Book appointments, chat with specialists, and access expert care anytime, anywhere.</p>
+      <a href="appointment.html" class="btn">Book an Appointment</a>
+    </div>
+  </section>
+
+  <section id="services" class="services">
+    <h2>Our Services</h2>
+    <div class="service-cards">
+      <div class="card">
+        <h3>24/7 Consultation</h3>
+        <p>Connect with doctors around the clock for immediate medical advice.</p>
+      </div>
+      <div class="card">
+        <h3>Appointment Scheduling</h3>
+        <p>Book and manage your doctor appointments effortlessly.</p>
+      </div>
+      <div class="card">
+        <h3>Health Records</h3>
+        <p>Access and maintain all your medical records securely online.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2024 ConsultEase. All rights reserved.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - ConsultEase</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    /* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+/* Header */
+.header {
+  background: #007BFF;
+  color: #fff;
+  padding: 10px 0;
+}
+
+.logo {
+  font-size: 1.8em;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  margin: 0 10px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1em;
+}
+
+.nav-links a.active {
+  font-weight: bold;
+  border-bottom: 2px solid #FFC107;
+}
+
+/* About Section */
+.about {
+  padding: 50px 20px;
+  background: url('https://source.unsplash.com/1920x1080/?healthcare,medical') no-repeat center center/cover;
+  background-attachment: fixed;
+  color: #fff;
+  text-align: center;
+  position: relative;
+}
+
+.about::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Dark overlay for readability */
+  z-index: 1;
+}
+
+.about .container {
+  position: relative;
+  z-index: 2;
+}
+
+.about h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.about p {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+}
+
+.about-grid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.about-card {
+  background: #fff;
+  color: #333;
+  border-radius: 10px;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.about-card h3 {
+  color: #007BFF;
+  margin-bottom: 10px;
+}
+
+.about-card ul {
+  list-style: disc inside;
+}
+
+.about-card ul li {
+  margin: 5px 0;
+}
+
+/* Footer */
+.footer {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+}
+
+</style>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">ConsultEase</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="base.html">Home</a></li>
+          <li><a href="about.html" class="active">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="about">
+    <div class="container">
+      <h2>About Us</h2>
+      <p>
+        Welcome to <strong>ConsultEase</strong>, your trusted platform for online doctor consultations.
+        We bridge the gap between patients and healthcare professionals, providing seamless access to
+        expert medical advice, anytime and anywhere.
+      </p>
+      <div class="about-grid">
+        <div class="about-card">
+          <h3>Our Mission</h3>
+          <p>
+            Our mission is to make healthcare accessible to everyone by leveraging technology to provide
+            convenient and reliable consultations.
+          </p>
+        </div>
+        <div class="about-card">
+          <h3>Our Vision</h3>
+          <p>
+            We envision a world where quality healthcare is a right, not a privilege. Our platform connects
+            patients with qualified doctors for quick and accurate diagnoses.
+          </p>
+        </div>
+        <div class="about-card">
+          <h3>Why Choose Us?</h3>
+          <ul>
+            <li>24/7 Availability</li>
+            <li>Experienced Professionals</li>
+            <li>Secure & Confidential</li>
+            <li>User-Friendly Interface</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2024 ConsultEase. All rights reserved.</p>
+  </footer>
+</body>
+</html>

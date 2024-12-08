@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Selector</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-top: 20px;
+        }
+
+        .card-category {
+            margin: 20px auto;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            border: 2px solid #007bff;
+            border-radius: 8px;
+            padding: 15px;
+            width: 180px;
+            text-align: center;
+            cursor: pointer;
+            background-color: #fff;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .card:hover {
+            transform: scale(1.1);
+            background-color: #f0f8ff;
+        }
+
+        .card img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 10px;
+        }
+
+        .card h3 {
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        .card button {
+            padding: 8px 12px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .card button:hover {
+            background-color: #0056b3;
+        }
+
+        .details-box {
+            margin-top: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fff;
+            width: 60%;
+            margin: 30px auto;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: none;
+            text-align: left;
+        }
+
+        .details-box h2 {
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        .details-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .details-box ul li {
+            margin: 10px 0;
+            color: #555;
+        }
+
+        .doctor-details {
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>Select a Category</h1>
+    <div class="card-category">
+        <!-- Kids Card -->
+        <div class="card">
+            <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSRGEjhZBPedJP4mwRK1bZn1oH4IqIwcKJCLjGwFRoRNzPq7byWWL3XDQ7-cM80" alt="Kids">
+            <h3>Kids</h3>
+            <button onclick="showDetails('kids')">Read More</button>
+        </div>
+
+        <!-- Adults Card -->
+        <div class="card">
+            <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTKVH4RR6oFHfWWtxqPEVv9JkavLvtGLkFULKmytcWhN7BgRHL35JR6GYgdma6H" alt="Adults">
+            <h3>Adults</h3>
+            <button onclick="showDetails('adults')">Read More</button>
+        </div>
+
+        <!-- Old Age Card -->
+        <div class="card">
+            <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRA9V4rcmae1IyCFUljnOZVfLZbsTdlagIV-HnbaXylV3wtOvrcvBJrWLUBUMjL" alt="Old Age">
+            <h3>Old Age</h3>
+            <button onclick="showDetails('old_age')">Read More</button>
+        </div>
+    </div>
+
+    <div id="details-box" class="details-box">
+        <h2>Details</h2>
+        <ul id="details-list"></ul>
+    </div>
+
+    <script>
+        const detailsData = {
+            kids: [
+                {
+                    issue: "Common cold and flu",
+                    doctor: "Dr. Sarah Johnson",
+                    experience: 10,
+                    hospital: "Children's Hospital",
+                    address: "123 Main St, Cityville",
+                    rating: 4.8
+                },
+                {
+                    issue: "Nutritional deficiencies",
+                    doctor: "Dr. Michael Brown",
+                    experience: 8,
+                    hospital: "Healthy Kids Clinic",
+                    address: "456 Elm St, Townsville",
+                    rating: 4.6
+                }
+            ],
+            adults: [
+                {
+                    issue: "Stress and anxiety",
+                    doctor: "Dr. Emily Carter",
+                    experience: 12,
+                    hospital: "Wellness Center",
+                    address: "789 Oak St, Metropolis",
+                    rating: 4.9
+                },
+                {
+                    issue: "Chronic back pain",
+                    doctor: "Dr. James White",
+                    experience: 15,
+                    hospital: "Pain Relief Institute",
+                    address: "101 Maple St, Bigcity",
+                    rating: 4.7
+                }
+            ],
+            old_age: [
+                {
+                    issue: "Arthritis and joint pain",
+                    doctor: "Dr. Linda Green",
+                    experience: 20,
+                    hospital: "Senior Care Hospital",
+                    address: "202 Birch St, Elderlytown",
+                    rating: 4.8
+                },
+                {
+                    issue: "Diabetes management",
+                    doctor: "Dr. Robert Black",
+                    experience: 18,
+                    hospital: "Diabetes Specialty Clinic",
+                    address: "303 Pine St, Sugartown",
+                    rating: 4.6
+                }
+            ]
+        };
+
+        function showDetails(category) {
+            const detailsBox = document.getElementById("details-box");
+            const detailsList = document.getElementById("details-list");
+
+            // Clear previous details
+            detailsList.innerHTML = "";
+
+            // Populate details based on the selected category
+            detailsData[category].forEach(detail => {
+                const li = document.createElement("li");
+                li.innerHTML = `
+                    <strong>Issue:</strong> ${detail.issue}<br>
+                    <strong>Doctor:</strong> ${detail.doctor} | <strong>Experience:</strong> ${detail.experience} years<br>
+                    <strong>Hospital:</strong> ${detail.hospital}<br>
+                    <strong>Address:</strong> ${detail.address}<br>
+                    <strong>Rating:</strong> ${detail.rating} ⭐
+                `;
+                detailsList.appendChild(li);
+            });
+
+            // Show the details box
+            detailsBox.style.display = "block";
+        }
+    </script>
+</body>
+</html>

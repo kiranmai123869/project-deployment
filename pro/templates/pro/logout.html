@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logout - ConsultEase</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<style>
+    /* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+  color: #333;
+}
+
+.logout-container {
+  width: 90%;
+  max-width: 600px;
+  margin: 100px auto;
+  text-align: center;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 40px 20px;
+}
+
+.logout-container h2 {
+  font-size: 2em;
+  color: #007BFF;
+  margin-bottom: 20px;
+}
+
+.logout-container p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+.logout-container .logout-btn {
+  background-color: #007BFF;
+  color: white;
+  padding: 12px 25px;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.logout-container .logout-btn:hover {
+  background-color: #0056b3;
+}
+
+</style>
+
+<body>
+  <!-- Logout Container -->
+  <div class="logout-container">
+    <h2>You have been logged out</h2>
+    <p>Thank you for using ConsultEase. You have successfully logged out of your account.</p>
+    <p>If you wish to log in again, click the button below:</p>
+    <button class="logout-btn" onclick="window.location.href='login.html'">Login Again</button>
+  </div>
+
+  <script>
+    // You can add some JavaScript here to handle session clearing or redirection
+    // Example: Simulate session ending and redirect to homepage after 3 seconds
+    setTimeout(function() {
+      window.location.href = 'base.html'; // Redirect to home page or login page after logout
+    }, 3000);
+  </script>
+</body>
+</html>

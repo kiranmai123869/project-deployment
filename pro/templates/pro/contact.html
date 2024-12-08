@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - ConsultEase</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    /* Header */
+    .header {
+      background: #007BFF;
+      color: #fff;
+      padding: 10px 0;
+    }
+
+    .logo {
+      font-size: 1.8em;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links li {
+      margin: 0 10px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 1em;
+    }
+
+    .nav-links a.active {
+      font-weight: bold;
+      border-bottom: 2px solid #FFC107;
+    }
+
+    /* Contact Section */
+    .contact {
+      padding: 50px 20px;
+      background: url('https://source.unsplash.com/1920x1080/?contact,medical') no-repeat center center/cover;
+      color: #fff;
+      text-align: center;
+      position: relative;
+    }
+
+    .contact::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6); /* Dark overlay for readability */
+      z-index: 1;
+    }
+
+    .contact .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .contact h2 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+
+    .contact p {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+    }
+
+    .contact-grid {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .contact-form,
+    .contact-info {
+      background: #fff;
+      color: #333;
+      border-radius: 10px;
+      padding: 20px;
+      width: 45%;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-form h3,
+    .contact-info h3 {
+      color: #007BFF;
+      margin-bottom: 15px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    textarea {
+      resize: none;
+    }
+
+    .btn {
+      background: #28A745;
+      color: #fff;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .social-link {
+      color: #FFC107;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+
+    .social-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    .footer {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    .success-message {
+      display: none;
+      margin-top: 20px;
+      color: #28A745;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">ConsultEase</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="contact">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <p>We’re here to help! Reach out to us for any inquiries or assistance.</p>
+
+      <div class="contact-grid">
+        <!-- Contact Form -->
+        <div class="contact-form">
+          <h3>Send Us a Message</h3>
+          <form id="contactForm">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="btn">Submit</button>
+          </form>
+          <p class="success-message" id="successMessage">Your message has been submitted successfully!</p>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="contact-info">
+          <h3>Contact Information</h3>
+          <p><strong>Email:</strong> support@consultease.com</p>
+          <p><strong>Phone:</strong> +1-800-123-4567</p>
+          <p><strong>Address:</strong> 123 Health Street, MedCity, HC 56789</p>
+          <h3>Follow Us</h3>
+          <p>
+            <a href="#" class="social-link">Facebook</a> |
+            <a href="#" class="social-link">Twitter</a> |
+            <a href="#" class="social-link">LinkedIn</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2024 ConsultEase. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // JavaScript for handling the form submission
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent actual form submission
+      document.getElementById('successMessage').style.display = 'block'; // Show success message
+    });
+  </script>
+</body>
+</html>

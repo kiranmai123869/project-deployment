@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings - ConsultEase</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<style>
+    /* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+  color: #333;
+}
+
+/* Navbar Styles */
+.navbar {
+  background: #007BFF;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar h1 {
+  font-size: 1.5em;
+  margin: 0;
+}
+
+.navbar .dropdown {
+  position: relative;
+}
+
+.navbar .dropdown-button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+.navbar .dropdown-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.navbar .dropdown-menu a {
+  display: block;
+  padding: 10px 20px;
+  color: #333;
+  text-decoration: none;
+  font-size: 0.9em;
+}
+
+.navbar .dropdown-menu a:hover {
+  background: #f4f4f9;
+}
+
+.navbar .dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* Settings Container */
+.settings-container {
+  width: 90%;
+  max-width: 800px;
+  margin: 20px auto;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.settings-container h2 {
+  font-size: 1.5em;
+  color: #007BFF;
+  margin-bottom: 20px;
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-weight: bold;
+  display: block;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.form-group input[type="submit"] {
+  background-color: #007BFF;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  width: 100%;
+  padding: 12px;
+  font-size: 1.1em;
+}
+
+.form-group input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+</style>
+
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <h1>ConsultEase</h1>
+    <div class="dropdown">
+      <button class="dropdown-button">
+        <i class="fas fa-user-circle"></i> Menu
+      </button>
+      <div class="dropdown-menu">
+        <a href="edit-profile.html">Edit Profile</a>
+        <a href="appointment.html">My Appointments</a>
+        <a href="#">Settings</a>
+        <a href="#">Logout</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Settings Container -->
+  <div class="settings-container">
+    <h2>Account Settings</h2>
+    <form action="#" method="POST">
+      <!-- Change Password -->
+      <div class="form-group">
+        <label for="current-password">Current Password</label>
+        <input type="password" id="current-password" name="current-password" placeholder="Enter your current password" required>
+      </div>
+
+      <div class="form-group">
+        <label for="new-password">New Password</label>
+        <input type="password" id="new-password" name="new-password" placeholder="Enter a new password" required>
+      </div>
+
+      <div class="form-group">
+        <label for="confirm-password">Confirm New Password</label>
+        <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your new password" required>
+      </div>
+
+      <!-- Notification Preferences -->
+      <div class="form-group">
+        <label for="notifications">Notification Preferences</label>
+        <select id="notifications" name="notifications">
+          <option value="all" selected>All Notifications</option>
+          <option value="email">Email Notifications Only</option>
+          <option value="sms">SMS Notifications Only</option>
+          <option value="none">No Notifications</option>
+        </select>
+      </div>
+
+      <!-- Account Privacy -->
+      <div class="form-group">
+        <label for="privacy">Account Privacy</label>
+        <select id="privacy" name="privacy">
+          <option value="public" selected>Public</option>
+          <option value="private">Private</option>
+        </select>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="form-group">
+        <input type="submit" value="Save Changes">
+      </div>
+    </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Appointment - ConsultEase</title>
+  <script src="https://js.stripe.com/v3/"></script> <!-- Stripe.js -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    /* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: url('https://source.unsplash.com/1920x1080/?healthcare,appointment') no-repeat center center/cover;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Overlay for better readability */
+  z-index: 1;
+}
+
+.appointment-section {
+  z-index: 2;
+}
+
+.appointment-container {
+  background: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+}
+
+.logo {
+  font-size: 1.8em;
+  color: #007BFF;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.appointment-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.form-group label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+textarea {
+  resize: none;
+}
+
+.btn {
+  background: #007BFF;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.btn:hover {
+  background: #0056b3;
+}
+
+.payment-section {
+  margin-top: 30px;
+}
+
+.payment-btn {
+  background-color: #28a745;
+  color: white;
+  padding: 12px 25px;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.payment-btn:hover {
+  background-color: #218838;
+}
+
+</style>
+<body>
+  <section class="appointment-section">
+    <div class="appointment-container">
+      <h1 class="logo">ConsultEase</h1>
+      <h2>Book an Appointment</h2>
+      <form action="#" method="post" class="appointment-form" id="appointment-form">
+        <!-- User Details -->
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+        </div>
+
+        <!-- Appointment Details -->
+        <div class="form-group">
+          <label for="doctor">Select Doctor</label>
+          <select id="doctor" name="doctor" required>
+            <option value="">Choose a doctor</option>
+            <option value="dr-smith">Dr. Smith - Cardiologist</option>
+            <option value="dr-jones">Dr. Jones - Pediatrician</option>
+            <option value="dr-brown">Dr. Brown - Dermatologist</option>
+            <option value="dr-taylor">Dr. Taylor - General Physician</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="date">Appointment Date</label>
+          <input type="date" id="date" name="date" required>
+        </div>
+        <div class="form-group">
+          <label for="time">Appointment Time</label>
+          <input type="time" id="time" name="time" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Additional Notes</label>
+          <textarea id="message" name="message" rows="4" placeholder="Provide any additional details (optional)"></textarea>
+        </div>
+
+      </form>
+    </div>
+  </section>
+
+  <script>
+    // Stripe.js and Elements
+    var stripe = Stripe('YOUR_STRIPE_PUBLIC_KEY'); // Replace with your Stripe public key
+    var elements = stripe.elements();
+    var card = elements.create('card');
+    card.mount('#card-element');
+
+
+      stripe.createToken(card).then(function (result) {
+        if (result.error) {
+          // Show error in card-errors div
+          document.getElementById('card-errors').textContent = result.error.message;
+        } else {
+          // Send the token to your server
+          var token = result.token;
+
+          // For example, send the token along with form data to your backend
+          // You will need to process this token on your server side for the actual payment.
+          var appointmentData = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            phone: document.getElementById('phone').value,
+            doctor: document.getElementById('doctor').value,
+            date: document.getElementById('date').value,
+            time: document.getElementById('time').value,
+            message: document.getElementById('message').value,
+            token: token.id
+          };
+
+          // Example: You can use AJAX to send the data to your server
+          fetch('/your-backend-endpoint', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(appointmentData),
+          })
+          .then(response => response.json())
+          .then(data => {
+            // Handle successful payment and appointment booking
+            alert('Payment successful! Your appointment is booked.');
+          })
+          .catch(error => {
+            // Handle payment errors
+            console.error('Error:', error);
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Profile - ConsultEase</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<style>
+    /* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+  color: #333;
+}
+
+/* Navbar Styles */
+.navbar {
+  background: #007BFF;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar h1 {
+  font-size: 1.5em;
+  margin: 0;
+}
+
+.navbar .dropdown {
+  position: relative;
+}
+
+.navbar .dropdown-button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+.navbar .dropdown-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.navbar .dropdown-menu a {
+  display: block;
+  padding: 10px 20px;
+  color: #333;
+  text-decoration: none;
+  font-size: 0.9em;
+}
+
+.navbar .dropdown-menu a:hover {
+  background: #f4f4f9;
+}
+
+.navbar .dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* Edit Profile Container */
+.edit-profile-container {
+  width: 90%;
+  max-width: 800px;
+  margin: 20px auto;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.edit-profile-container h2 {
+  font-size: 1.5em;
+  color: #007BFF;
+  margin-bottom: 20px;
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-weight: bold;
+  display: block;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.form-group input[type="submit"] {
+  background-color: #007BFF;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  width: 100%;
+  padding: 12px;
+  font-size: 1.1em;
+}
+
+.form-group input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+</style>
+
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <h1>ConsultEase</h1>
+    <div class="dropdown">
+      <button class="dropdown-button">
+        <i class="fas fa-user-circle"></i> Menu
+      </button>
+      <div class="dropdown-menu">
+        <a href="#">Edit Profile</a>
+        <a href="appointment.html">My Appointments</a>
+        <a href="#">Settings</a>
+        <a href="#">Logout</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit Profile Container -->
+  <div class="edit-profile-container">
+    <h2>Edit Profile</h2>
+    <form action="#" method="POST">
+      <!-- Full Name -->
+      <div class="form-group">
+        <label for="full-name">Full Name</label>
+        <input type="text" id="full-name" name="full-name" value="John Doe" required>
+      </div>
+
+      <!-- Email -->
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" value="john.doe@example.com" required>
+      </div>
+
+      <!-- Phone Number -->
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input type="text" id="phone" name="phone" value="+1-234-567-890" required>
+      </div>
+
+      <!-- Address -->
+      <div class="form-group">
+        <label for="address">Address</label>
+        <input type="text" id="address" name="address" value="123 Main St, City, Country">
+      </div>
+
+      <!-- Gender -->
+      <div class="form-group">
+        <label for="gender">Gender</label>
+        <select id="gender" name="gender">
+          <option value="Male" selected>Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="form-group">
+        <input type="submit" value="Save Changes">
+      </div>
+    </form>
+  </div>
+</body>
+</html>
